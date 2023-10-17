@@ -4,7 +4,7 @@ body {
 }
 
 a {
-  margin-right: 1rem;
+  margin: none;
 }
 
 main {
@@ -29,12 +29,3 @@ p {
   line-height: 1.35;
 }
 
-@media (min-width: 480px) {
-  h1 {
-    max-width: none;
-  }
-
-  p {
-    max-width: none;
-  }
-}

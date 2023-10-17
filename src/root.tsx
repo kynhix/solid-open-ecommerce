@@ -1,6 +1,6 @@
 // @refresh reload
 import { Navbar } from "solid-bootstrap";
-import { Suspense } from "solid-js";
+import { createSignal, Suspense } from "solid-js";
 import {
   A,
   Body,
@@ -14,6 +14,7 @@ import {
   Title,
 } from "solid-start";
 import Header from "./components/Header";
+import SideCart from "./components/SideCart";
 import "./root.css";
 
 export default function Root() {
@@ -32,6 +33,7 @@ export default function Root() {
         <Suspense>
           <ErrorBoundary>
             <Header />
+            <SideCart />
             <Routes>
               <FileRoutes />
             </Routes>
