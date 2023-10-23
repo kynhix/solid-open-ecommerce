@@ -1,9 +1,10 @@
 import { Card } from "solid-bootstrap";
+import { VoidProps } from "solid-js";
 import { A } from "solid-start";
 import { setCart } from "~/cart";
 import { shopItem } from "~/shop";
 
-export default function ShopItemCard({ product }) {
+export default function ShopItemCard({ product }: VoidProps<{ product: shopItem }>) {
   const handleClick = (e: MouseEvent) => {
     console.log("I WAS CLICKED!");
     setCart('items', l => [...l, product])

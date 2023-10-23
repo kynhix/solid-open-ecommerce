@@ -14,7 +14,7 @@ export default function SideCart() {
       </Offcanvas.Header>
       <Offcanvas.Body>
         <For each={cart.items}>{(item, i) =>
-          <SideCartItem />
+          <SideCartItem product={item} />
         }</For>
       </Offcanvas.Body>
     </Offcanvas>
