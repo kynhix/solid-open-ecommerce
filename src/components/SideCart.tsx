@@ -1,5 +1,7 @@
 import { Offcanvas } from "solid-bootstrap";
-import { createSignal } from "solid-js"
+import { createSignal, For } from "solid-js"
+import { cart } from "~/cart";
+import SideCartItem from "./SideCartItem";
 
 export const [showSideCard, setShowSideCart] = createSignal(false);
 
@@ -11,6 +13,9 @@ export default function SideCart() {
         <Offcanvas.Title>Cart</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body>
+        <For each={cart.items}>{(item, i) =>
+          <SideCartItem />
+        }</For>
       </Offcanvas.Body>
     </Offcanvas>
   )

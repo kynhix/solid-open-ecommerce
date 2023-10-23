@@ -1,8 +1,8 @@
 // @refresh reload
+import { Router } from "@solidjs/router";
 import { Navbar } from "solid-bootstrap";
-import { createSignal, Suspense } from "solid-js";
+import { createEffect, createSignal, Suspense } from "solid-js";
 import {
-  A,
   Body,
   ErrorBoundary,
   FileRoutes,
