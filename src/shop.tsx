@@ -1,3 +1,4 @@
+import { supabase } from "./supabaseClient";
 
 export const debugItems: Array<shopItem> = [
   {
@@ -22,4 +23,27 @@ export type shopItem = {
   img: string,
   price: number,
   description: string,
+}
+
+export async function testGetAllItems(): Promise<shopItem[]> {
+  return new Promise<shopItem[]>(async (resolve, reject) => {
+    try {
+      const { data, error, status } = await supabase.from('shop_items')
+        .select('id, name, price_usd, img, description');
+
+      if (error && status !== 406) {
+        throw error;
+      }
+
+      if (data) {
+        data.forEach(({ id, price_usd, img, description }, index) => {
+          console.log("YES IT WORKED OR SOMETHING", id)
+        })
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        alert(error.message)
+      }
+    }
+  })
 }

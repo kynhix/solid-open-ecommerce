@@ -1,9 +1,12 @@
 import { Container } from "solid-bootstrap"
-import { For } from "solid-js";
+import { createEffect, For } from "solid-js";
 import ShopItemCard from "~/components/ShopItemCard";
-import { debugItems } from "~/shop";
+import { debugItems, testGetAllItems } from "~/shop";
 
 export default function Home() {
+  createEffect(async () => {
+    await testGetAllItems();
+  })
   return (
     <main>
       <h1>Hey</h1>
