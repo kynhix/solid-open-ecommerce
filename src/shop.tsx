@@ -39,10 +39,12 @@ export async function testGetAllItems(): Promise<shopItem[]> {
         data.forEach(({ id, price_usd, img, description }, index) => {
           console.log("YES IT WORKED OR SOMETHING", id)
         })
+        resolve([]);
       }
     } catch (error) {
       if (error instanceof Error) {
-        alert(error.message)
+        alert(error.message);
+        reject(error.message);
       }
     }
   })
