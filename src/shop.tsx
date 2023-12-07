@@ -26,7 +26,6 @@ export type shopItem = {
 }
 
 export async function testGetAllItems(): Promise<shopItem[]> {
-  console.log("here")
   const res: shopItem[] = [];
   try {
     const { data, error, status } = await supabase.from('shop_items')
@@ -35,11 +34,9 @@ export async function testGetAllItems(): Promise<shopItem[]> {
     if (error && status !== 406) {
       throw error;
     }
-
-    if (data) {
+    else if (data) {
       data.forEach(({ id, name, price_usd, img, description }, index) => {
-        console.log("YES IT WORKED OR SOMETHING", id)
-        return res.push({ id: id, name: name, img: img, price: price_usd, description: description });
+        res.push({ id: id, name: name, img: img, price: price_usd, description: description });
       })
     }
   } catch (error) {
@@ -47,6 +44,5 @@ export async function testGetAllItems(): Promise<shopItem[]> {
       alert(error.message);
     }
   }
-
   return res;
 }

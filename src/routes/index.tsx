@@ -13,16 +13,12 @@ export default function Home() {
   return (
     <main>
       <h1>Hey</h1>
-      <Suspense fallback={<h1>Loading...</h1>}>
-        <For each={data()}>{(item, i) =>
-          <h1>{item.name}</h1>
-        }</For>
-        <h1>Loaded?</h1>
-      </Suspense>
       <Container>
-        <For each={debugItems}>{(item, i) =>
-          <ShopItemCard product={item}></ShopItemCard>
-        }</For>
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <For each={data()}>{(item, i) =>
+            <ShopItemCard product={item}></ShopItemCard>
+          }</For>
+        </Suspense>
       </Container>
     </main>
   );
